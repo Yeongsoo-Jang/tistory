@@ -1,0 +1,693 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>데이터 문해력</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="21f819d3-5800-42ed-bacc-c48fb89f3145" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🧊</span></div><h1 class="page-title">데이터 문해력</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/book-closed_gray.svg" style="width:14px;height:14px"/></span>분류</th><td><span class="selected-value select-value-color-green">경제/경영</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/star-outline_gray.svg" style="width:14px;height:14px"/></span>별점</th><td><span class="selected-value select-value-color-blue">★ ★ ★ ★☆</span></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesStatus"><path d="M8.75488 1.02344C8.75488 0.613281 8.41309 0.264648 8.00293 0.264648C7.59277 0.264648 7.25098 0.613281 7.25098 1.02344V3.11523C7.25098 3.51855 7.59277 3.86719 8.00293 3.86719C8.41309 3.86719 8.75488 3.51855 8.75488 3.11523V1.02344ZM3.91504 5.0293C4.20215 5.31641 4.69434 5.32324 4.97461 5.03613C5.26855 4.74902 5.26855 4.25684 4.98145 3.96973L3.53906 2.52051C3.25195 2.2334 2.7666 2.21973 2.47949 2.50684C2.19238 2.79395 2.18555 3.28613 2.47266 3.57324L3.91504 5.0293ZM10.9629 4.01758C10.6826 4.30469 10.6826 4.79688 10.9697 5.08398C11.2568 5.37109 11.749 5.36426 12.0361 5.07715L13.4854 3.62793C13.7725 3.34082 13.7725 2.84863 13.4785 2.55469C13.1982 2.27441 12.7061 2.27441 12.4189 2.56152L10.9629 4.01758ZM15.0234 8.78906C15.4336 8.78906 15.7822 8.44727 15.7822 8.03711C15.7822 7.62695 15.4336 7.28516 15.0234 7.28516H12.9385C12.5283 7.28516 12.1797 7.62695 12.1797 8.03711C12.1797 8.44727 12.5283 8.78906 12.9385 8.78906H15.0234ZM0.975586 7.28516C0.56543 7.28516 0.223633 7.62695 0.223633 8.03711C0.223633 8.44727 0.56543 8.78906 0.975586 8.78906H3.07422C3.48438 8.78906 3.83301 8.44727 3.83301 8.03711C3.83301 7.62695 3.48438 7.28516 3.07422 7.28516H0.975586ZM12.0361 10.9902C11.749 10.71 11.2568 10.71 10.9629 10.9971C10.6826 11.2842 10.6826 11.7764 10.9697 12.0635L12.4258 13.5127C12.7129 13.7998 13.2051 13.793 13.4922 13.5059C13.7793 13.2256 13.7725 12.7266 13.4854 12.4395L12.0361 10.9902ZM2.52051 12.4395C2.22656 12.7266 2.22656 13.2188 2.50684 13.5059C2.79395 13.793 3.28613 13.7998 3.57324 13.5127L5.02246 12.0703C5.31641 11.7832 5.31641 11.291 5.03613 11.0039C4.74902 10.7168 4.25684 10.71 3.96973 10.9971L2.52051 12.4395ZM8.75488 12.9658C8.75488 12.5557 8.41309 12.207 8.00293 12.207C7.59277 12.207 7.25098 12.5557 7.25098 12.9658V15.0576C7.25098 15.4609 7.59277 15.8096 8.00293 15.8096C8.41309 15.8096 8.75488 15.4609 8.75488 15.0576V12.9658Z"></path></svg></span>상태</th><td><span class="status-value select-value-color-gray"><div class="status-dot status-dot-color-gray"></div>완독</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>저자</th><td>카시와기 요시키</td></tr><tr class="property-row property-row-formula"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/chart-donut_gray.svg" style="width:14px;height:14px"/></span>진행률</th><td>1</td></tr><tr class="property-row property-row-number"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesNumber"><path d="M2.4834 10.9902H4.33594L3.75488 13.8887C3.74121 13.9639 3.72754 14.0664 3.72754 14.1416C3.72754 14.5381 3.99414 14.7637 4.39746 14.7637C4.81445 14.7637 5.09473 14.5449 5.18359 14.1143L5.80566 10.9902H8.79297L8.21191 13.8887C8.19824 13.9639 8.18457 14.0664 8.18457 14.1416C8.18457 14.5381 8.45117 14.7637 8.85449 14.7637C9.27148 14.7637 9.55176 14.5449 9.63379 14.1143L10.2627 10.9902H12.4502C12.9287 10.9902 13.2432 10.6758 13.2432 10.2109C13.2432 9.8418 12.9902 9.56836 12.6006 9.56836H10.5498L11.2129 6.28711H13.3662C13.8379 6.28711 14.1523 5.96582 14.1523 5.50098C14.1523 5.13184 13.9062 4.8584 13.5098 4.8584H11.5L12.0195 2.27441C12.0264 2.21973 12.0469 2.11035 12.0469 2.01465C12.0469 1.625 11.7666 1.39258 11.3633 1.39258C10.9053 1.39258 10.6797 1.63867 10.5977 2.05566L10.0303 4.8584H7.04297L7.5625 2.27441C7.57617 2.21973 7.58984 2.11035 7.58984 2.01465C7.58984 1.625 7.30957 1.39258 6.91309 1.39258C6.44824 1.39258 6.21582 1.63867 6.13379 2.05566L5.57324 4.8584H3.54297C3.06445 4.8584 2.75 5.18652 2.75 5.65137C2.75 6.03418 3.00293 6.28711 3.39258 6.28711H5.28613L4.62305 9.56836H2.63379C2.15527 9.56836 1.84082 9.89648 1.84082 10.3613C1.84082 10.7373 2.09375 10.9902 2.4834 10.9902ZM6.09277 9.56836L6.75586 6.28711H9.74316L9.08008 9.56836H6.09277Z"></path></svg></span>총 페이지</th><td>240</td></tr><tr class="property-row property-row-file"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/art_gray.svg" style="width:14px;height:14px"/></span>표지</th><td><span style="margin-right:6px"><a href="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788965402916.jpg"><img style="width:20px;max-height:24px" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788965402916.jpg" alt="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788965402916.jpg"/></a></span></td></tr><tr class="property-row property-row-relation"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesRelation"><path d="M13.1475 10.5869V3.72363C13.1475 3.25195 12.833 2.93066 12.3477 2.93066H5.48438C5.02637 2.93066 4.70508 3.27246 4.70508 3.67578C4.70508 4.07227 5.05371 4.40039 5.46387 4.40039H7.89746L10.8438 4.30469L9.59961 5.39844L3.08496 11.9199C2.92773 12.0771 2.8457 12.2686 2.8457 12.46C2.8457 12.8564 3.20801 13.2256 3.61816 13.2256C3.80957 13.2256 3.99414 13.1504 4.15137 12.9932L10.6729 6.47168L11.7803 5.22754L11.6641 8.05762V10.6074C11.6641 11.0176 11.9922 11.373 12.4023 11.373C12.8057 11.373 13.1475 11.0312 13.1475 10.5869Z"></path></svg></span>한 문장</th><td><a href="https://www.notion.so/10392d5e02c980b8a6c3c97de768fc8f?pvs=21"><span class="icon">💬</span>“당신이 무엇을 알고 싶은지, 이를 알게 되면 무엇을 하고 싶은지, 이를 위해서는 어떤 데이터(지표)가 필요한지”</a>, <a href="https://www.notion.so/10392d5e02c9801c9a1ed4937db9df90?pvs=21"><span class="icon">💬</span>“대체 ‘구체적’으로 인구 문제의 어떤 부분을 알고 싶은가요? 어떤 종류의 인구 문제를 해결하고자 하나요?”</a>, <a href="https://www.notion.so/10392d5e02c980b39ec1fb037ddaa591?pvs=21"><span class="icon">💬</span>“나는 문제를 명확하게 정의해 풀고 있는가? 둘 이상의 해석이 나오지 않도록, 구체적으로 표현하고 정의하였는가?”</a>, <a href="https://www.notion.so/db4689d4d7de41d399ac3f0ae26cb778?pvs=21"><span class="icon">💬</span>“데이터를 보다 전략적으로 의사 결정이나 문제 해결 등에 활용한다고 할 때, 그런 식으로 하면 전혀 소용이 없습니다. 언제나 경쟁 원리에 따라 움직여야 하는 기업과 마찬가지로, 매년 인구가 감소하고 재정이 열악해지는 지자체에 필요한 것은 사실이나 결과 공개뿐만 아니라 시민이 합리적으로 납득할 수 있는 판단과 의사결정을 하기 위한 재료입니다.”</a>, <a href="https://www.notion.so/3f6473b945ec4a22bb7ee05d8aa0c0af?pvs=21"><span class="icon">💬</span>“실적과 결과 표시만 하고 끝낸 것은 아닌지, 이 결과를 통해 구체적인 판단이나 행동으로 연결될 것인지, 문제와 결과에 대한 원인을 충분히 고려했는지”</a>, <a href="https://www.notion.so/10692d5e02c98062ac61ccb796448516?pvs=21"><span class="icon">💬</span>“풍부한 창의성으로 혁신적인 아이디어를 생각해낸다는 의미와 논리적으로 꾸준히 사물이나 현상의 원리를 추구한다는 의미에서 ‘생각한다’입니다. ‘생각의 종류가 다르다’는 것이 핵심입니다.”</a>, <a href="https://www.notion.so/10a92d5e02c980a1a324c68950ed51b1?pvs=21"><span class="icon">💬</span>“데이터를 무기로 합리적으로 논할 수 있는 능력”</a></td></tr><tr class="property-row property-row-number"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesNumber"><path d="M2.4834 10.9902H4.33594L3.75488 13.8887C3.74121 13.9639 3.72754 14.0664 3.72754 14.1416C3.72754 14.5381 3.99414 14.7637 4.39746 14.7637C4.81445 14.7637 5.09473 14.5449 5.18359 14.1143L5.80566 10.9902H8.79297L8.21191 13.8887C8.19824 13.9639 8.18457 14.0664 8.18457 14.1416C8.18457 14.5381 8.45117 14.7637 8.85449 14.7637C9.27148 14.7637 9.55176 14.5449 9.63379 14.1143L10.2627 10.9902H12.4502C12.9287 10.9902 13.2432 10.6758 13.2432 10.2109C13.2432 9.8418 12.9902 9.56836 12.6006 9.56836H10.5498L11.2129 6.28711H13.3662C13.8379 6.28711 14.1523 5.96582 14.1523 5.50098C14.1523 5.13184 13.9062 4.8584 13.5098 4.8584H11.5L12.0195 2.27441C12.0264 2.21973 12.0469 2.11035 12.0469 2.01465C12.0469 1.625 11.7666 1.39258 11.3633 1.39258C10.9053 1.39258 10.6797 1.63867 10.5977 2.05566L10.0303 4.8584H7.04297L7.5625 2.27441C7.57617 2.21973 7.58984 2.11035 7.58984 2.01465C7.58984 1.625 7.30957 1.39258 6.91309 1.39258C6.44824 1.39258 6.21582 1.63867 6.13379 2.05566L5.57324 4.8584H3.54297C3.06445 4.8584 2.75 5.18652 2.75 5.65137C2.75 6.03418 3.00293 6.28711 3.39258 6.28711H5.28613L4.62305 9.56836H2.63379C2.15527 9.56836 1.84082 9.89648 1.84082 10.3613C1.84082 10.7373 2.09375 10.9902 2.4834 10.9902ZM6.09277 9.56836L6.75586 6.28711H9.74316L9.08008 9.56836H6.09277Z"></path></svg></span>현재 페이지</th><td>240</td></tr></tbody></table></header><div class="page-body"><blockquote id="7f699bd8-d6cb-4972-a5b5-2f050a934b32" class="">빅데이터 시대, 성과를 이끌어 내는</blockquote><p id="d382f37b-7d2c-4796-bf0f-35ad1b44a7b8" class="">
+</p><h3 id="9fcbdcd0-80b1-46cd-bb6b-894a9249fa6b" class="">목차</h3><ol type="1" id="ba3abacf-4d38-4866-bab6-7c00d1fcea0e" class="numbered-list" start="1"><li>앞으로 필요한 건 데이터 문해력: 분석보다 활용</li></ol><ol type="1" id="65fd0fa7-f170-4af5-a67e-8295372ce47e" class="numbered-list" start="2"><li>올바른 데이터로 올바른 문제를 풀고 있는가?<br/><br/><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.8em"><mstyle mathcolor="skyblue"><mpadded width="+6pt" height="+6pt" lspace="3pt" voffset="3pt" mathbackground="#ffffff"><mrow><mtext mathvariant="bold">목적</mtext><mtext> </mtext><mtext mathvariant="bold">사고력:</mtext><mtext> </mtext><mtext mathvariant="bold">목적에</mtext><mtext> </mtext><mtext mathvariant="bold">맞게</mtext><mtext> </mtext><mtext mathvariant="bold">문제와</mtext><mtext> </mtext><mtext mathvariant="bold">데이터를</mtext><mtext> </mtext><mtext mathvariant="bold">연결하기</mtext></mrow></mpadded></mstyle></mstyle></mrow><annotation encoding="application/x-tex">\footnotesize\bf\color{skyblue}\colorbox{ffffff}{목적 사고력: 목적에 맞게 문제와 데이터를 연결하기}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0289em;vertical-align:-0.24em;"></span><span class="mord sizing reset-size6 size4"><span class="mord" style="color:skyblue;"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9861em;"><span style="top:-2.9861em;"><span class="pstrut" style="height:3.2861em;"></span><span class="stretchy colorbox" style="color:skyblue;height:1.2861em;background-color:#ffffff;"></span></span><span style="top:-3.2861em;"><span class="pstrut" style="height:3.2861em;"></span><span class="mord boxpad" style="color:skyblue;"><span class="mord mathbf hangul_fallback" style="color:skyblue;">목적</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">사고력</span><span class="mord mathbf" style="color:skyblue;">: </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">목적에</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">맞게</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">문제와</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">데이터를</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">연결하기</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></li></ol><ol type="1" id="10a92d5e-02c9-8092-92ce-dee836d4dc56" class="numbered-list" start="3"><li>‘이것이 문제다’ 데이터로 말하는 방법<br/><br/><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.8em"><mstyle mathcolor="skyblue"><mpadded width="+6pt" height="+6pt" lspace="3pt" voffset="3pt" mathbackground="#ffffff"><mrow><mtext mathvariant="bold">현상</mtext><mtext> </mtext><mtext mathvariant="bold">파악</mtext><mtext> </mtext><mtext mathvariant="bold">및</mtext><mtext> </mtext><mtext mathvariant="bold">평가력:</mtext><mtext> </mtext><mtext mathvariant="bold">문제를</mtext><mtext> </mtext><mtext mathvariant="bold">표현하는</mtext><mtext> </mtext><mtext mathvariant="bold">힘</mtext></mrow></mpadded></mstyle></mstyle></mrow><annotation encoding="application/x-tex">\footnotesize\bf\color{skyblue}\colorbox{ffffff}{현상 파악 및 평가력: 문제를 표현하는 힘}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0289em;vertical-align:-0.24em;"></span><span class="mord sizing reset-size6 size4"><span class="mord" style="color:skyblue;"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9861em;"><span style="top:-2.9861em;"><span class="pstrut" style="height:3.2861em;"></span><span class="stretchy colorbox" style="color:skyblue;height:1.2861em;background-color:#ffffff;"></span></span><span style="top:-3.2861em;"><span class="pstrut" style="height:3.2861em;"></span><span class="mord boxpad" style="color:skyblue;"><span class="mord mathbf hangul_fallback" style="color:skyblue;">현상</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">파악</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">및</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">평가력</span><span class="mord mathbf" style="color:skyblue;">: </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">문제를</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">표현하는</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">힘</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></li></ol><ol type="1" id="ac9a5350-e6f2-44c5-a94c-5af274e65204" class="numbered-list" start="4"><li>결과가 나왔다고 끝난 것은 아니다<br/><br/><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.8em"><mstyle mathcolor="skyblue"><mpadded width="+6pt" height="+6pt" lspace="3pt" voffset="3pt" mathbackground="#ffffff"><mrow><mtext mathvariant="bold">원인</mtext><mtext> </mtext><mtext mathvariant="bold">파악</mtext><mtext> </mtext><mtext mathvariant="bold">능력:</mtext><mtext> </mtext><mtext mathvariant="bold">행동으로</mtext><mtext> </mtext><mtext mathvariant="bold">이어지는</mtext><mtext> </mtext><mtext mathvariant="bold">힘</mtext></mrow></mpadded></mstyle></mstyle></mrow><annotation encoding="application/x-tex">\footnotesize\bf\color{skyblue}\colorbox{ffffff}{원인 파악 능력: 행동으로 이어지는 힘}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0289em;vertical-align:-0.24em;"></span><span class="mord sizing reset-size6 size4"><span class="mord" style="color:skyblue;"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9861em;"><span style="top:-2.9861em;"><span class="pstrut" style="height:3.2861em;"></span><span class="stretchy colorbox" style="color:skyblue;height:1.2861em;background-color:#ffffff;"></span></span><span style="top:-3.2861em;"><span class="pstrut" style="height:3.2861em;"></span><span class="mord boxpad" style="color:skyblue;"><span class="mord mathbf hangul_fallback" style="color:skyblue;">원인</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">파악</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">능력</span><span class="mord mathbf" style="color:skyblue;">: </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">행동으로</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">이어지는</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">힘</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></li></ol><ol type="1" id="10a92d5e-02c9-8015-a626-d7e2fd92e168" class="numbered-list" start="5"><li>기법에 집착하지 마라<br/><br/><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.8em"><mstyle mathcolor="skyblue"><mpadded width="+6pt" height="+6pt" lspace="3pt" voffset="3pt" mathbackground="#ffffff"><mrow><mtext mathvariant="bold">전체</mtext><mtext> </mtext><mtext mathvariant="bold">구성력:</mtext><mtext> </mtext><mtext mathvariant="bold">스토리(논리)를</mtext><mtext> </mtext><mtext mathvariant="bold">만드는</mtext><mtext> </mtext><mtext mathvariant="bold">힘</mtext></mrow></mpadded></mstyle></mstyle></mrow><annotation encoding="application/x-tex">\footnotesize\bf\color{skyblue}\colorbox{ffffff}{전체 구성력: 스토리(논리)를 만드는 힘}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.28em;vertical-align:-0.44em;"></span><span class="mord sizing reset-size6 size4"><span class="mord" style="color:skyblue;"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-3.05em;"><span class="pstrut" style="height:3.6em;"></span><span class="stretchy colorbox" style="color:skyblue;height:1.6em;background-color:#ffffff;"></span></span><span style="top:-3.6em;"><span class="pstrut" style="height:3.6em;"></span><span class="mord boxpad" style="color:skyblue;"><span class="mord mathbf hangul_fallback" style="color:skyblue;">전체</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">구성력</span><span class="mord mathbf" style="color:skyblue;">: </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">스토리</span><span class="mord mathbf" style="color:skyblue;">(</span><span class="mord mathbf hangul_fallback" style="color:skyblue;">논리</span><span class="mord mathbf" style="color:skyblue;">)</span><span class="mord mathbf hangul_fallback" style="color:skyblue;">를</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">만드는</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">힘</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.55em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></li></ol><ol type="1" id="10a92d5e-02c9-8069-bb9d-d845978ed9e3" class="numbered-list" start="6"><li>‘결론은 이것이다’ 정보를 요약하라<br/><br/><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.8em"><mstyle mathcolor="skyblue"><mpadded width="+6pt" height="+6pt" lspace="3pt" voffset="3pt" mathbackground="#ffffff"><mrow><mtext mathvariant="bold">정보</mtext><mtext> </mtext><mtext mathvariant="bold">집약력:</mtext><mtext> </mtext><mtext mathvariant="bold">정보를</mtext><mtext> </mtext><mtext mathvariant="bold">수집하고</mtext><mtext> </mtext><mtext mathvariant="bold">결론을</mtext><mtext> </mtext><mtext mathvariant="bold">이끌어내는</mtext><mtext> </mtext><mtext mathvariant="bold">힘</mtext></mrow></mpadded></mstyle></mstyle></mrow><annotation encoding="application/x-tex">\footnotesize\bf\color{skyblue}\colorbox{ffffff}{정보 집약력: 정보를 수집하고 결론을 이끌어내는 힘}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0289em;vertical-align:-0.24em;"></span><span class="mord sizing reset-size6 size4"><span class="mord" style="color:skyblue;"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9861em;"><span style="top:-2.9861em;"><span class="pstrut" style="height:3.2861em;"></span><span class="stretchy colorbox" style="color:skyblue;height:1.2861em;background-color:#ffffff;"></span></span><span style="top:-3.2861em;"><span class="pstrut" style="height:3.2861em;"></span><span class="mord boxpad" style="color:skyblue;"><span class="mord mathbf hangul_fallback" style="color:skyblue;">정보</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">집약력</span><span class="mord mathbf" style="color:skyblue;">: </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">정보를</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">수집하고</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">결론을</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">이끌어내는</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">힘</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></li></ol><ol type="1" id="10a92d5e-02c9-800f-9890-dae2299de87a" class="numbered-list" start="7"><li>‘데이터로 문제를 해결할 수 있다’는 착각<br/><br/><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.8em"><mstyle mathcolor="skyblue"><mpadded width="+6pt" height="+6pt" lspace="3pt" voffset="3pt" mathbackground="#ffffff"><mrow><mtext mathvariant="bold">시야확대력:</mtext><mtext> </mtext><mtext mathvariant="bold">데이터로부터</mtext><mtext> </mtext><mtext mathvariant="bold">시야를</mtext><mtext> </mtext><mtext mathvariant="bold">넓히는</mtext><mtext> </mtext><mtext mathvariant="bold">힘</mtext></mrow></mpadded></mstyle></mstyle></mrow><annotation encoding="application/x-tex">\footnotesize\bf\color{skyblue}\colorbox{ffffff}{시야확대력: 데이터로부터 시야를 넓히는 힘}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0289em;vertical-align:-0.24em;"></span><span class="mord sizing reset-size6 size4"><span class="mord" style="color:skyblue;"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9861em;"><span style="top:-2.9861em;"><span class="pstrut" style="height:3.2861em;"></span><span class="stretchy colorbox" style="color:skyblue;height:1.2861em;background-color:#ffffff;"></span></span><span style="top:-3.2861em;"><span class="pstrut" style="height:3.2861em;"></span><span class="mord boxpad" style="color:skyblue;"><span class="mord mathbf hangul_fallback" style="color:skyblue;">시야확대력</span><span class="mord mathbf" style="color:skyblue;">: </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">데이터로부터</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">시야를</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">넓히는</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">힘</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></li></ol><ol type="1" id="d847c735-b342-4b0d-8640-5cd2b04d5c31" class="numbered-list" start="8"><li>개인과 조직의 데이터 활용 능력을 높이는 방법<br/><br/><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="0.8em"><mstyle mathcolor="skyblue"><mpadded width="+6pt" height="+6pt" lspace="3pt" voffset="3pt" mathbackground="#ffffff"><mrow><mtext mathvariant="bold">실행력:</mtext><mtext> </mtext><mtext mathvariant="bold">문해력을</mtext><mtext> </mtext><mtext mathvariant="bold">실현하는</mtext><mtext> </mtext><mtext mathvariant="bold">힘</mtext></mrow></mpadded></mstyle></mstyle></mrow><annotation encoding="application/x-tex">\footnotesize\bf\color{skyblue}\colorbox{ffffff}{실행력: 문해력을 실현하는 힘}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0289em;vertical-align:-0.24em;"></span><span class="mord sizing reset-size6 size4"><span class="mord" style="color:skyblue;"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9861em;"><span style="top:-2.9861em;"><span class="pstrut" style="height:3.2861em;"></span><span class="stretchy colorbox" style="color:skyblue;height:1.2861em;background-color:#ffffff;"></span></span><span style="top:-3.2861em;"><span class="pstrut" style="height:3.2861em;"></span><span class="mord boxpad" style="color:skyblue;"><span class="mord mathbf hangul_fallback" style="color:skyblue;">실행력</span><span class="mord mathbf" style="color:skyblue;">: </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">문해력을</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">실현하는</span><span class="mord mathbf" style="color:skyblue;"> </span><span class="mord mathbf hangul_fallback" style="color:skyblue;">힘</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></li></ol><p id="1077b67f-a012-44e5-a998-129d1b07654f" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="336dbdfe-8ac3-4c2b-82d8-385258a09cef"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/grid-wide-six_gray.svg"/></div><div style="width:100%"><p id="ba3497ee-0688-47c1-9e7e-f0c9cb0c83ee" class="">요약</p><ul id="6bebf33e-254d-459a-95d8-10639357ee65" class="bulleted-list"><li style="list-style-type:disc">데이터 분석을 통해 얻을 수 있는 결과가 목적을 잘 반영하고 있는지는 데이터의 양과 분석 방법에 좌우되지 않는다</li></ul><ul id="10a92d5e-02c9-8037-96af-f5520e9dc57a" class="bulleted-list"><li style="list-style-type:disc">데이터 분석이란 눈앞의 데이터로부터 어떤 패턴을 추출하는 것이 아니다</li></ul><ul id="10a92d5e-02c9-804e-9f8c-ef3f4ec40413" class="bulleted-list"><li style="list-style-type:disc">‘데이터를 통해’판독’한 정보는 아무리 훌륭한 데이터 사이언스를 구사하더라도 시사점(인사이트)이라고 할 수 없다</li></ul><ul id="a648b0fd-ec60-4e14-8386-c2cb28f7372c" class="bulleted-list"><li style="list-style-type:disc">‘데이터 분석 방법’과 ‘데이터 분석을 활용하는 방법’은 전혀 다른 개념이다</li></ul><ul id="10a92d5e-02c9-80bf-85f0-fa8652bb0511" class="bulleted-list"><li style="list-style-type:disc">목적이 애매하면 그것이 자 풀릴지는 운에 의지하게 된다. 애당초 잘 풀리고 있는지 어떤지조차 평가할 수 없겠지만</li></ul><ul id="10a92d5e-02c9-8070-b9d5-fa9f389582d3" class="bulleted-list"><li style="list-style-type:disc">‘분석’도 ‘데이터’도 어디까지나 수단이고 도구일 뿐, 답을 제시해주지 않는다</li></ul><ul id="10a92d5e-02c9-80ff-bc3a-ea9b065bb5e0" class="bulleted-list"><li style="list-style-type:disc">‘데이터 분석을 통해 성과를 낸다’는 것은 ‘나무로 가구를 만든다’에 비유된다. 좋은 목재(데이터)가 있고 못을 박는 실력(분석 방법과 통계 지식)이 뛰어나더라도, 어떤 가구를 어떻게 만들지 자신이 모른다면 가구를 완성할 수 없다</li></ul></div></figure><p id="fb7dd7a9-46ef-4849-9a54-bf21c980f534" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="853ed223-c676-4c61-a2cc-76e30506de7a"><div style="font-size:1.5em"><img class="icon" src="https://www.notion.so/icons/thought-dialogue_gray.svg"/></div><div style="width:100%"><p id="b9cb98dd-0e70-4cbc-a7d2-963e16918f71" class="">생각</p><ol type="1" id="2c2fbf59-f872-4670-9862-dcd6cbac9130" class="numbered-list" start="1"><li>비교의 기술: 목적에 따라 ‘값의 크기’ ‘추이’ ‘편차’ ‘비율’ 등 4가지 평가 기준을 이용해 데이터의 특징을 포착한다.</li></ol><ol type="1" id="10592d5e-02c9-8085-abd9-d8c59b499a54" class="numbered-list" start="2"><li>결과 = XX와 YY는 차이가 있습니다.  // 결론 = XX와 YY의 차이가 존재한다는 것은, ZZ라는 의미입니다.</li></ol></div></figure><p id="10692d5e-02c9-80f3-ac0a-eb714807bde3" class="">
+</p><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="10692d5e-02c9-8082-9e65-d6eba573da53"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="820194b9-2173-4cd7-952a-b56f895b1b63" class="">데이터 활용 프로세스</p><table id="10692d5e-02c9-8053-a683-c94536406bbe" class="simple-table"><tbody><tr id="c8aa77ac-de19-4daa-a934-3536ef7541ce"><td id="b:A]" class=""></td><td id="xvwa" class="" style="width:46px">A</td><td id="W|W{" class="">(겉으로 드러난 현상)</td></tr><tr id="4b092704-8967-4420-b73b-8c31d486b831"><td id="b:A]" class="">목적 및 문제 정의</td><td id="xvwa" class="" style="width:46px">B</td><td id="W|W{" class="">목적 및 문제를 정의</td></tr><tr id="3bd78560-7142-4912-96c2-481eb832f9ab"><td id="b:A]" class=""></td><td id="xvwa" class="" style="width:46px">C</td><td id="W|W{" class="">지표를 결정</td></tr><tr id="e9395a21-3103-411d-a12c-a89acfd429ab"><td id="b:A]" class="">현상 파악 및 평가</td><td id="xvwa" class="" style="width:46px">D</td><td id="W|W{" class="">현재 상태를 파악</td></tr><tr id="239cf35f-8e9b-46ca-8f8c-c4f5d2c211aa"><td id="b:A]" class=""></td><td id="xvwa" class="" style="width:46px">E</td><td id="W|W{" class="">평가</td></tr><tr id="3fe72bb3-ffac-408e-8ae3-8b4a4d848f76"><td id="b:A]" class="">원인</td><td id="xvwa" class="" style="width:46px">F</td><td id="W|W{" class="">원인을 분석</td></tr><tr id="0416c274-b226-47c3-871c-69ac081ab030"><td id="b:A]" class="">방법</td><td id="xvwa" class="" style="width:46px">G</td><td id="W|W{" class="">해결 방안을 모색</td></tr></tbody></table></div></figure><p id="10692d5e-02c9-80bc-a275-c29bb9c34269" class="">
+</p><figure id="ec716ae5-b7cc-49d0-8e09-8291c9b8dfe8" class="image"><a href="%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%92%E1%85%A2%E1%84%85%E1%85%A7%E1%86%A8%2021f819d3580042edbaccc48fb89f3145/IMG_0490.jpeg"><img style="width:3086px" src="%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%92%E1%85%A2%E1%84%85%E1%85%A7%E1%86%A8%2021f819d3580042edbaccc48fb89f3145/IMG_0490.jpeg"/></a></figure><p id="10692d5e-02c9-8036-9219-f7ce2ebdfc54" class="">데이터를 통한 원인 분석에서 중요한 것은 원인과 결과의 ‘연결성’</p><p id="10692d5e-02c9-805b-8de1-fa4d903b0c2f" class="">
+</p><figure id="10692d5e-02c9-80dd-ba3a-f330759e1bee" class="image"><a href="%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%92%E1%85%A2%E1%84%85%E1%85%A7%E1%86%A8%2021f819d3580042edbaccc48fb89f3145/IMG_8124.jpeg"><img style="width:3024px" src="%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%92%E1%85%A2%E1%84%85%E1%85%A7%E1%86%A8%2021f819d3580042edbaccc48fb89f3145/IMG_8124.jpeg"/></a></figure><p id="3685b05f-1a96-40b2-87ee-9cef7cd0b1bc" class="">
+</p><figure id="10692d5e-02c9-8010-898a-de66cdaf2c35" class="image"><a href="%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%92%E1%85%A2%E1%84%85%E1%85%A7%E1%86%A8%2021f819d3580042edbaccc48fb89f3145/IMG_8125.jpeg"><img style="width:4032px" src="%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%92%E1%85%A2%E1%84%85%E1%85%A7%E1%86%A8%2021f819d3580042edbaccc48fb89f3145/IMG_8125.jpeg"/></a><figcaption>사분면으로 나눠 각각의 특징을 찾다</figcaption></figure><p id="10692d5e-02c9-80e8-ab9c-ca118448eae6" class="">
+</p><figure id="10692d5e-02c9-803d-88f5-fc2e17d6ee91" class="image"><a href="%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%92%E1%85%A2%E1%84%85%E1%85%A7%E1%86%A8%2021f819d3580042edbaccc48fb89f3145/IMG_8126.jpeg"><img style="width:3024px" src="%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%92%E1%85%A2%E1%84%85%E1%85%A7%E1%86%A8%2021f819d3580042edbaccc48fb89f3145/IMG_8126.jpeg"/></a><figcaption>아쉬운 결과가 나오는 것은 데이터 활용이나 분석 내용에 문제가 있어서가 아니라, 적절한 사고 과정을 밟지 않았기 때문입니다.</figcaption></figure><p id="3a4826a7-0543-4648-a56e-f3c07e8a69cd" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
